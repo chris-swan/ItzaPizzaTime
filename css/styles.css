@@ -11,14 +11,12 @@ h3 {
 	color: white;
 }
 
-/*body {
-	background-image: url(http://hdwallpaperfun.com/wp-content/uploads/2014/09/Bricks-Texture-Wallpaper-Free-Background-Desktop-Images-5100912-1024x576.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-    background-size: cover;
-}*/
+body {
+	background-color: 6699CC;
+	text-align: center;
+}
 
-.btn{
+.btn {
     background-image: url(http://www.clipartlord.com/wp-content/uploads/2013/12/pizza6-225x240.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -29,6 +27,11 @@ h3 {
     border-radius: 100px;
     color: black;
     font-size: 2em;
-  }
+ }
+
+input {
+ 	text-align:center;
+}
+
 
 /*http://media.giphy.com/media/3q4RdFTCKtp0A/giphy.gif*/

@@ -7,7 +7,6 @@ function Pizza(topping, pizzaSize, quantity, flirt) {
   this.flirt = flirt;
 };
 
-
 //Calcuate price: start with base price, modify based on selections made:
 Pizza.prototype.calculatePrice = function() {
   var basePrice = 10;
@@ -43,18 +42,17 @@ Pizza.prototype.calculatePrice = function() {
     } else {
       return "Hold on bro, we can't make negative pizzas!";
     }
-//Flirt to gamble a lower or higher price:
-   if (this.flirt == "no") {
+
+//Option to flirt to gamble a lower or higher price:
+ if (this.flirt == "no") {
        var finalPrice = "Your total price is going to be $" + pizzaPrice;
     } else if (this.flirt == "yes" && .5 < flirtResult) {
       var badFlirt = pizzaPrice + 6;
-      var finalPrice = "Flirting didn't go too well, better leave a good tip...$" + badFlirt;
+      var finalPrice = "Flirting didn't go too well, better leave a good tip (+6 dollars)...$" + badFlirt;
     } else {
       var goodFlirt = pizzaPrice - 6;
-      var finalPrice = "Flirting worked!!! Take a few bucks off and pay $" + goodFlirt;
-   }
-
-  //Getting close to start point...
+      var finalPrice = "Flirting worked!!! Six bucks off your bill to pay $" + goodFlirt;
+  }
 
 return finalPrice;
 
@@ -79,5 +77,4 @@ $(document).ready(function() {
     $(".price").text(finalPrice);
 
   });
-
 });
