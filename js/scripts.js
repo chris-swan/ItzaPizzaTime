@@ -14,7 +14,7 @@ Pizza.prototype.calculatePrice = function() {
   var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan", "Garlic special", "Hawaiian", ];
   var specialToppingArray = ["Meat Lovers", "Pizza Especial"];
  
- //using an array of pizzas, add additional cost based on topping selection: 
+ //using an array of toppings, add additional cost based on topping selection to access the two arrays of differing prices: 
 if (toppingArray.indexOf(toppingType) != -1) {
     var toppingPrice = basePrice + 5;
   } else if (specialToppingArray.indexOf(toppingType) != -1) {
@@ -24,7 +24,7 @@ if (toppingArray.indexOf(toppingType) != -1) {
     var toppingPrice = basePrice;
   }
 
-//Adjust price based on size:
+//Adjust price based on size selection:
 if (this.pizzaSize == "Large") {
   var sizePrice = toppingPrice + 10;
 } else if (this.pizzaSize == "Medium") {
@@ -33,8 +33,12 @@ if (this.pizzaSize == "Large") {
   var sizePrice = toppingPrice;
 }
 
-//Adjust the price based on the quantity selected:
-var PizzaPrice = this.quantity * sizePrice;
+//Adjust the price based on the quantity selected, and create a limit:
+if (this.quantity < 5000) {
+  var PizzaPrice = "$" + this.quantity * sizePrice;
+} else {
+  var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!"
+}
 
 return PizzaPrice;
 
@@ -55,7 +59,7 @@ $(document).ready(function() {
     var newPizza = new Pizza(inputtedTopping, inputtedPizzaSize, inputtedQuantity);
     var PizzaPrice = newPizza.calculatePrice();
 
-    $(".price").text("$" + PizzaPrice);
+    $(".price").text(PizzaPrice);
 
   });
 
