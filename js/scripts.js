@@ -23,8 +23,29 @@ if (this.pizzaSize == "Large") {
   var sizePrice = toppingPrice;
 }
 
-var quantityPrice = this.quantity * sizePrice;
+var PizzaPrice = this.quantity * sizePrice;
 
-return quantityPrice;
+return PizzaPrice;
 
 }
+
+$(document).ready(function() {
+
+  $("form#pizza-selection").submit(function(event) {
+    event.preventDefault();
+
+
+    var inputtedTopping = $("#topping").val();
+    var inputtedPizzaSize = $("#pizzaSize").val();
+    var inputtedQuantity = parseInt($("input#quantity").val());
+
+
+    var newPizza = new Pizza(inputtedTopping, inputtedPizzaSize, inputtedQuantity);
+    var PizzaPrice = newPizza.calculatePrice();
+
+    $(".price").text("$" + PizzaPrice);
+
+
+});
+
+});
