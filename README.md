@@ -11,8 +11,8 @@ An app that calculates the price of a pizza based on selected size, toppings and
 ## Setup
 
 - clone this repository
-- launch spec-runner.js by opening in your browser to view tests
-- open index.html in web browser to use and view site
+- launch spec-runner.js by opening it in your browser to view tests
+- open index.html in web browser to view site and try features
 
 ## Technologies Used
 
