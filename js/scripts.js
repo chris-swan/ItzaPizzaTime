@@ -15,5 +15,13 @@ if (toppingArray.indexOf(toppingType) != -1) {
     var toppingPrice = basePrice;
   }
 
-  return toppingPrice;
+if (this.pizzaSize == "Large") {
+  var sizePrice = toppingPrice + 10;
+} else if (this.pizzaSize == "Medium") {
+  var sizePrice = toppingPrice +5;
+} else {
+  var sizePrice = toppingPrice;
+}
+
+return sizePrice;
 }
