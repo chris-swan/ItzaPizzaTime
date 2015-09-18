@@ -35,14 +35,14 @@ if (this.pizzaSize == "Large") {
 
 //Adjust the price based on the quantity selected, and create a limit:
 if (this.quantity < 5000 && this.quantity > 0) {
-    var PizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
+    var pizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
   } else if (this.quantity >= 5000) {
-    var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
+    var pizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
   } else {
-    PizzaPrice = "Hold on bro, we can't make negative pizzas!";
+    pizzaPrice = "Hold on bro, we can't make negative pizzas!";
   }
 
-return PizzaPrice;
+return pizzaPrice;
 
 }
 
@@ -59,9 +59,9 @@ $(document).ready(function() {
 
 
     var newPizza = new Pizza(inputtedTopping, inputtedPizzaSize, inputtedQuantity);
-    var PizzaPrice = newPizza.calculatePrice();
+    var pizzaPrice = newPizza.calculatePrice();
 
-    $(".price").text(PizzaPrice);
+    $(".price").text(pizzaPrice);
 
   });
 
