@@ -14,7 +14,7 @@ Pizza.prototype.calculatePrice = function() {
   var toppingType = this.topping;
   var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan", "Garlic special", "Hawaiian", ];
   var specialToppingArray = ["Meat Lovers", "Pizza Especial"];
-  var flirtResult = Math.floor((Math.random() * 10) + 1);
+  var flirtResult = Math.random();
  
    //using an array of toppings, add additional cost based on topping selection to access the two arrays of differing prices: 
   if (toppingArray.indexOf(toppingType) != -1) {
@@ -37,21 +37,21 @@ Pizza.prototype.calculatePrice = function() {
 
   //Adjust the price based on the quantity selected, and create a limit:
   if (this.quantity < 5000 && this.quantity > 0) {
-      var pizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
+      var pizzaPrice = this.quantity * sizePrice;
     } else if (this.quantity >= 5000) {
       return "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
     } else {
       return "Hold on bro, we can't make negative pizzas!";
     }
-
- if (this.flirt == "no") {
-     var finalPrice = pizzaPrice;
-  } else if (this.flirt == "yes" && 5 < flirtResult) {
-    var badFlirt = pizzaPrice + 6;
-    var finalPrice = "Flirting didn't go too well, better leave a good tip...$" + badFlirt;
-  } else {
-    var goodFlirt = pizzaPrice - 6;
-    var finalPrice = "Flirting worked!!! Take a few bucks off and pay $" + goodFlirt;
+//Flirt to gamble a lower or higher price:
+   if (this.flirt == "no") {
+       var finalPrice = "Your total price is going to be $" + pizzaPrice;
+    } else if (this.flirt == "yes" && .5 < flirtResult) {
+      var badFlirt = pizzaPrice + 6;
+      var finalPrice = "Flirting didn't go too well, better leave a good tip...$" + badFlirt;
+    } else {
+      var goodFlirt = pizzaPrice - 6;
+      var finalPrice = "Flirting worked!!! Take a few bucks off and pay $" + goodFlirt;
    }
 
   //Getting close to start point...
