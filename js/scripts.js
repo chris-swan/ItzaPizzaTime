@@ -23,5 +23,8 @@ if (this.pizzaSize == "Large") {
   var sizePrice = toppingPrice;
 }
 
-return sizePrice;
+var quantityPrice = this.quantity * sizePrice;
+
+return quantityPrice;
+
 }
