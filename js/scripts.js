@@ -48,7 +48,7 @@ Pizza.prototype.calculatePrice = function() {
        var finalPrice = "Your total price is going to be $" + pizzaPrice;
     } else if (this.flirt == "yes" && .5 < flirtResult) {
       var badFlirt = pizzaPrice * 1.5 ;
-      var finalPrice = "Flirting didn't go too well, better leave a good tip (Better tip 50% it was bad...)...$" + badFlirt;
+      var finalPrice = "Flirting didn't go too well, better leave a good tip (Better tip 50%..it was bad...) $" + badFlirt;
     } else {
       var goodFlirt = pizzaPrice * .5;
       var finalPrice = "Flirting worked!!! It saved you 50%! You have to pay $" + goodFlirt;
