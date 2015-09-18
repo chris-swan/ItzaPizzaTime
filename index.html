@@ -1,1 +1,50 @@
-index
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/styles.css" rel="stylesheet" type="text/css"> -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Itza Pizza Time </title>
+  </head>
+  <body>
+    <h1>Select your Pizza</h1>
+
+    <form id="topping-selection">
+
+        <div class="form-group">
+          <select id="topping">
+            <option class="topping" value="Pepperoni">Pepperoni</option>
+            <option class="topping" value="BBQ Chicken">BBQ Chicken</option>
+            <option class="topping" value="Veggie">Veggie</option>
+            <option class="topping" value="Vegan">Vegan</option>
+            <option class="topping" value="Garlic special">Garlic special</option>
+            <option class="topping" value="Hawaiian">Hawaiian</option>
+            <option class="topping" value="Meat Lovers">Meat Lovers</option>
+            <option class="topping" value="Pizza Especial">Pizza Especial</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <select id="pizzaSizeInput">
+            <option class="pizzaSize" value="Small">Small</option>
+            <option class="pizzaSize" value="Medium">Medium</option>
+            <option class="pizzaSize" value="Large">Large</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="number" class="form-control" id="quantity" placeholder="quantity">
+        </div>
+
+
+    <button type="submit" class="btn btn-primary">Calculate Price</button>
+    </form>
+
+    <div class="col-md-6">
+      <div id="show-price">
+        <p>Your Total Price for selected pizza: <span class="price"></span></p>
+      </div>
+    </div>
+
+  </body>
+</html>
