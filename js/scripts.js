@@ -26,21 +26,21 @@ if (toppingArray.indexOf(toppingType) != -1) {
 
 //Adjust price based on size selection:
 if (this.pizzaSize == "Large") {
-  var sizePrice = toppingPrice + 10;
-} else if (this.pizzaSize == "Medium") {
-  var sizePrice = toppingPrice +5;
-} else {
-  var sizePrice = toppingPrice;
-}
+    var sizePrice = toppingPrice + 10;
+  } else if (this.pizzaSize == "Medium") {
+    var sizePrice = toppingPrice +5;
+  } else {
+    var sizePrice = toppingPrice;
+  }
 
 //Adjust the price based on the quantity selected, and create a limit:
 if (this.quantity < 5000 && this.quantity > 0) {
-  var PizzaPrice = "$" + this.quantity * sizePrice;
-} else if (this.quantity >= 5000) {
-  var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
-} else {
-  PizzaPrice = "Hold on bro, we can't make negative pizzas!";
-}
+    var PizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
+  } else if (this.quantity >= 5000) {
+    var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
+  } else {
+    PizzaPrice = "Hold on bro, we can't make negative pizzas!";
+  }
 
 return PizzaPrice;
 
