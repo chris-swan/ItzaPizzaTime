@@ -11,12 +11,16 @@ function Pizza(topping, pizzaSize, quantity) {
 Pizza.prototype.calculatePrice = function() {
   var basePrice = 10;
   var toppingType = this.topping;
-  var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan", "Garlic special", "Hawaiian", "Meat Lovers", "Pizza Especial"];
+  var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan", "Garlic special", "Hawaiian", ];
+  var specialToppingArray = ["Meat Lovers", "Pizza Especial"];
  
  //using an array of pizzas, add additional cost based on topping selection: 
 if (toppingArray.indexOf(toppingType) != -1) {
     var toppingPrice = basePrice + 5;
-  } else {
+  } else if (specialToppingArray.indexOf(toppingType) != -1) {
+    var toppingPrice = basePrice + 8;
+  } 
+  else {
     var toppingPrice = basePrice;
   }
 

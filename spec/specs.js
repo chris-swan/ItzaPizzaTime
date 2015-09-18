@@ -30,4 +30,9 @@ it("assigns a higher price based quantity(price based on topping, size and quant
     var testPizza = new Pizza("Pepperoni", "Large", 3);
     expect(testPizza.calculatePrice()).to.equal(75);
   });
+
+it("assigns a higher price based extra special price(price based on topping, size and quantity)", function () {
+    var testPizza = new Pizza("Meat Lovers", "Small", 1);
+    expect(testPizza.calculatePrice()).to.equal(18);
+  });
 });
