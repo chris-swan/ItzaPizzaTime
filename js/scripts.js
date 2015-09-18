@@ -34,10 +34,12 @@ if (this.pizzaSize == "Large") {
 }
 
 //Adjust the price based on the quantity selected, and create a limit:
-if (this.quantity < 5000) {
+if (this.quantity < 5000 && this.quantity > 0) {
   var PizzaPrice = "$" + this.quantity * sizePrice;
+} else if (this.quantity >= 5000) {
+  var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
 } else {
-  var PizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!"
+  PizzaPrice = "Hold on bro, we can't make negative pizzas!";
 }
 
 return PizzaPrice;

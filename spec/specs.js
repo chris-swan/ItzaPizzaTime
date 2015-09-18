@@ -40,4 +40,9 @@ it("assigns a cap to be sure the pizza maker can meet demand", function () {
     expect(testPizza.calculatePrice()).to.equal("Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!");
   });
 
+it("assigns does not allow negative intergers to be ordered", function () {
+    var testPizza = new Pizza("Meat Lovers", "Small", -5);
+    expect(testPizza.calculatePrice()).to.equal("Hold on bro, we can't make negative pizzas!");
+  });
+
 });
