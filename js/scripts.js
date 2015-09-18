@@ -1,9 +1,10 @@
 
 //Pizza function:
-function Pizza(topping, pizzaSize, quantity) {
+function Pizza(topping, pizzaSize, quantity, flirt) {
   this.topping = topping;
   this.pizzaSize = pizzaSize;
   this.quantity = quantity;
+  this.flirt = flirt;
 };
 
 
@@ -13,36 +14,49 @@ Pizza.prototype.calculatePrice = function() {
   var toppingType = this.topping;
   var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan", "Garlic special", "Hawaiian", ];
   var specialToppingArray = ["Meat Lovers", "Pizza Especial"];
+  var flirtResult = Math.floor((Math.random() * 10) + 1);
  
- //using an array of toppings, add additional cost based on topping selection to access the two arrays of differing prices: 
-if (toppingArray.indexOf(toppingType) != -1) {
-    var toppingPrice = basePrice + 5;
-  } else if (specialToppingArray.indexOf(toppingType) != -1) {
-    var toppingPrice = basePrice + 8;
-  } 
-  else {
-    var toppingPrice = basePrice;
-  }
+   //using an array of toppings, add additional cost based on topping selection to access the two arrays of differing prices: 
+  if (toppingArray.indexOf(toppingType) != -1) {
+      var toppingPrice = basePrice + 5;
+    } else if (specialToppingArray.indexOf(toppingType) != -1) {
+      var toppingPrice = basePrice + 8;
+    } 
+    else {
+      var toppingPrice = basePrice;
+    }
 
-//Adjust price based on size selection:
-if (this.pizzaSize == "Large") {
-    var sizePrice = toppingPrice + 10;
-  } else if (this.pizzaSize == "Medium") {
-    var sizePrice = toppingPrice +5;
+  //Adjust price based on size selection:
+  if (this.pizzaSize == "Large") {
+      var sizePrice = toppingPrice + 10;
+    } else if (this.pizzaSize == "Medium") {
+      var sizePrice = toppingPrice + 5;
+    } else {
+      var sizePrice = toppingPrice;
+    }
+
+  //Adjust the price based on the quantity selected, and create a limit:
+  if (this.quantity < 5000 && this.quantity > 0) {
+      var pizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
+    } else if (this.quantity >= 5000) {
+      return "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
+    } else {
+      return "Hold on bro, we can't make negative pizzas!";
+    }
+
+ if (this.flirt == "no") {
+     var finalPrice = pizzaPrice;
+  } else if (this.flirt == "yes" && 5 < flirtResult) {
+    var badFlirt = pizzaPrice + 6;
+    var finalPrice = "Flirting didn't go too well, better leave a good tip...$" + badFlirt;
   } else {
-    var sizePrice = toppingPrice;
-  }
+    var goodFlirt = pizzaPrice - 6;
+    var finalPrice = "Flirting worked!!! Take a few bucks off and pay $" + goodFlirt;
+   }
 
-//Adjust the price based on the quantity selected, and create a limit:
-if (this.quantity < 5000 && this.quantity > 0) {
-    var pizzaPrice = "Your price is going to be $" + this.quantity * sizePrice;
-  } else if (this.quantity >= 5000) {
-    var pizzaPrice = "Whoa man, our little pizza shop can't make that many! Our kitchen is WAY too small!!!";
-  } else {
-    pizzaPrice = "Hold on bro, we can't make negative pizzas!";
-  }
+  //Getting close to start point...
 
-return pizzaPrice;
+return finalPrice;
 
 }
 
@@ -56,12 +70,13 @@ $(document).ready(function() {
     var inputtedTopping = $("#topping").val();
     var inputtedPizzaSize = $("#pizzaSize").val();
     var inputtedQuantity = parseInt($("input#quantity").val());
+    var inputtedFlirt = $("#flirt").val();
 
 
-    var newPizza = new Pizza(inputtedTopping, inputtedPizzaSize, inputtedQuantity);
-    var pizzaPrice = newPizza.calculatePrice();
+    var newPizza = new Pizza(inputtedTopping, inputtedPizzaSize, inputtedQuantity, inputtedFlirt);
+    var finalPrice = newPizza.calculatePrice();
 
-    $(".price").text(pizzaPrice);
+    $(".price").text(finalPrice);
 
   });
 
