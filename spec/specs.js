@@ -10,4 +10,9 @@ it("assigns a price based on topping", function () {
     var testPizza = new Pizza("cheese", "Small", 1);
     expect(testPizza.calculatePrice()).to.equal(10);
   });
+
+it("assigns a price based on topping", function () {
+    var testPizza = new Pizza("Pepperoni", "Small", 1);
+    expect(testPizza.calculatePrice()).to.equal(15);
+  });
 });

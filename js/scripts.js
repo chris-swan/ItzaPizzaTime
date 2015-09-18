@@ -10,7 +10,7 @@ Pizza.prototype.calculatePrice = function() {
   var toppingArray = ["Pepperoni", "BBQ Chicken", "Veggie", "Vegan"];
   
 if (toppingArray.indexOf(toppingType) != -1) {
-    var toppingPrice = basePrice + 3;
+    var toppingPrice = basePrice + 5;
   } else {
     var toppingPrice = basePrice;
   }
